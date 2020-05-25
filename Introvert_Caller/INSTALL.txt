@@ -1,0 +1,50 @@
+Introvert-Caller V1.0 service installation
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+SOUND APPLICATIONS (Install before building PJSUA library)
+
+sudo apt-get install sox libsox-fmt-mp3
+sudo apt-get install alsa-base pulseaudio
+sudo alsa force-reload
+sudo apt-get install libasound2-dev
+
+sudo apt install python3-pip
+----------------------------------------------------------------------- 
+LIBRARIES:
+
+Python3:
+-------
+cherrypy 	*(pip install CherryPy)
+configparser	*(pip install configparser)
+tinydb		*(pip install tinydb)
+gtts		*(pip install gTTS)
+requests	*(pip install requests)
+contextlib	*(pip install contextlib2)
+wave		*(pip install Wave)
+textblob	*(pip install textblob)
+
+shutil          *(pre-installed library)
+subprocess	*(pre-installed library)
+time		*(pre-installed library)
+queue		*(pre-installed library)
+	
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+# PJSUA compilation for Python 3.6
+
+location >> pjproject-2.8/
+
+[1] $ ./configure --enable-shared
+[2] $ sudo apt-get install build-essential
+[3] $ cd pjsip-apps/src
+[4] $ git clone https://github.com/koficodes/python3-pjsip.git
+[5] $ cd python3-pjsip/
+[6] $ cd pjproject-2.8/
+[7] $ make dep && make clean && make
+[8] $ sudo make install
+[9] $ cd pjsip-apps/src/python3-pjsip/
+[A] $ python3 ./setup.py install
+[B] $ pip3 freeze
+
+
